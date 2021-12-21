@@ -11,6 +11,7 @@ public class ItemSpawner : MonoBehaviour
     public Item itemPrefab;
     public Transform rooms;
     public List<Color> colorList;
+    public List<AudioClip> audioClips;
 
     private void Start()
     {
@@ -25,11 +26,11 @@ public class ItemSpawner : MonoBehaviour
         {
             Item newItem = Instantiate(itemPrefab);
 
-            int newRandomColorIndex = Random.Range(0, colorList.Count);
-            Color randomColor = colorList[newRandomColorIndex];
-            colorList.RemoveAt(newRandomColorIndex);
+            Color newColor = colorList[0];
+            colorList.RemoveAt(0);
 
-            newItem.GetComponent<Renderer>().material.color = randomColor;
+            newItem.audio = audioClips[i];
+            newItem.GetComponent<Renderer>().material.color = newColor;
 
 
             int newRoomId = Random.Range(lastRoomId + 1, roomCount - (numberOfItemToSpawn - i));

@@ -6,42 +6,29 @@ using UnityEngine;
 public class RoomController : MonoBehaviour
 {
     public int id;
-    public GameObject door;
     public Transform itemPosition;
+    public Tray tray;
 
+    public DoorController door;
     private void Awake()
     {
         id = transform.GetSiblingIndex();
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Player")
-        {
-            OpenDoor();
-        }
-    }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.tag == "Player")
         {
-            CloseDoor();
+            door.Close();
         }
     }
 
-    private void CloseDoor()
-    {
-        door.SetActive(true);
-    }
-
-    private void OpenDoor()
-    {
-        door.SetActive(false);
-    }
 
     internal void SetItem(Item newItem)
     {
         newItem.transform.position = itemPosition.position;
         newItem.roomId = id;
+        newItem.tray = this.tray;
+        tray.empty = false;
     }
 }
