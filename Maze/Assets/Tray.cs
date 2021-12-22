@@ -5,6 +5,8 @@ using UnityEngine;
 public class Tray : RayCastItem
 {
     public bool empty = true;
+
+    public RoomController parentRoom;
     public Transform itemPos;
     public override void OnRayCast()
     {
@@ -27,6 +29,21 @@ public class Tray : RayCastItem
 
         firstItem.tray = this;
 
+        if (firstItem.roomId == parentRoom.id)
+        {
+            GameController.correct++;
+        }
+        else
+        {
+            if (parentRoom.id == 0)
+            {
+                GameController.wrongAll++;
+            }
+            else
+            {
+                GameController.wrongColor++;
+            }
+        }
         PlayerController.instance.ReturnItem(firstItem);
 
 

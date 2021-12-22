@@ -108,6 +108,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   open: 0
+  visited: 0
+  parentRoom: {fileID: 3889238143052300761}
 --- !u!1 &1183393578314271123
 GameObject:
   m_ObjectHideFlags: 0
@@ -437,6 +439,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
+  empty: 1
   itemPosition: {fileID: 1082405636461839408}
   tray: {fileID: 3090897756115888881}
   door: {fileID: 6030281278569709408}
@@ -762,6 +765,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   empty: 1
+  parentRoom: {fileID: 3889238143052300761}
   itemPos: {fileID: 1082405636461839408}
 --- !u!1 &4862577872985408283
 GameObject:

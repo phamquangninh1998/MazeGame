@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     public GameObject backToBeginText;
     public GameObject collectText;
     public GameObject returnItemText;
+    public GameObject resultTable;
 
 
 
@@ -41,6 +42,10 @@ public class PlayerController : MonoBehaviour
         Vector3 move = transform.right * x + transform.forward * z;
 
         character.Move(move * speed * Time.deltaTime);
+
+        GameController.timeTravel += Time.deltaTime;
+        GameController.distanceTravel += move.magnitude;
+
 
         if (Input.GetKeyDown(KeyCode.R))
         {
@@ -71,6 +76,8 @@ public class PlayerController : MonoBehaviour
         returnItemText.SetActive(true);
         PlayCurrentItemAudio();
     }
+
+
     public void SetCurrentObjectToHand()
     {
 
@@ -94,7 +101,74 @@ public class PlayerController : MonoBehaviour
 
     private void EndGame()
     {
+
+        int trial = GameController.trial;
+        SaveTrialData(trial);
+
+        if (trial == 5)
+        {
+            ShowResult();
+        }
+        else
+        {
+            GameController.trial++;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+        }
+
+
+
+
+
+    }
+
+    private void ShowResult()
+    {
+        resultTable.SetActive(true);
+        Time.timeScale = 0;
+        Cursor.lockState = CursorLockMode.None;
+
+    }
+
+    public void Replay()
+    {
+        Time.timeScale = 1;
+        GameController.trial = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+    }
+
+    public void SaveTrialData(int trial)
+    {
+        PlayerPrefs.SetInt("enterEmptyRoom" + trial, GameController.enterEmptyRoom);
+
+        PlayerPrefs.SetInt("enterOldRoom" + trial, GameController.enterOldRoom);
+
+        PlayerPrefs.SetInt("correct" + trial, GameController.correct);
+
+        PlayerPrefs.SetInt("wrongColor" + trial, GameController.wrongColor);
+
+        PlayerPrefs.SetInt("wrongAll" + trial, GameController.wrongAll);
+
+        PlayerPrefs.SetFloat("distanceTravel" + trial, GameController.distanceTravel);
+
+        PlayerPrefs.SetFloat("timeTravel" + trial, GameController.timeTravel);
+
+
+
+        Debug.Log("enterEmptyRoom" + trial + "   " + GameController.enterEmptyRoom);
+
+        Debug.Log("enterOldRoom" + trial + "   " + GameController.enterOldRoom);
+
+        Debug.Log("correct" + trial + "   " + GameController.correct);
+
+        Debug.Log("wrongColor" + trial + "   " + GameController.wrongColor);
+
+        Debug.Log("wrongAll" + trial + "   " + GameController.wrongAll);
+
+        Debug.Log("distanceTravel" + trial + "   " + GameController.distanceTravel);
+
+        Debug.Log("timeTravel" + trial + "   " + GameController.timeTravel);
     }
 }
 

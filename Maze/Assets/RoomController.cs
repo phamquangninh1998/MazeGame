@@ -5,16 +5,13 @@ using UnityEngine;
 
 public class RoomController : MonoBehaviour
 {
-    public int id;
+    public int id=0;
+    public bool empty = true;
     public Transform itemPosition;
     public Tray tray;
-
     public DoorController door;
-    private void Awake()
-    {
-        id = transform.GetSiblingIndex();
-    }
-
+   
+    
     private void OnTriggerExit(Collider other)
     {
         if (other.tag == "Player")
@@ -24,10 +21,14 @@ public class RoomController : MonoBehaviour
     }
 
 
-    internal void SetItem(Item newItem)
+    internal void SetItem(Item newItem,int newId)
     {
+        empty = false;
         newItem.transform.position = itemPosition.position;
-        newItem.roomId = id;
+
+        newItem.roomId = newId;
+        this.id = newId;
+
         newItem.tray = this.tray;
         tray.empty = false;
     }

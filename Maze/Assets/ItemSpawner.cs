@@ -38,8 +38,7 @@ public class ItemSpawner : MonoBehaviour
             lastRoomId = newRoomId;
 
             RoomController selectedRoom = rooms.GetChild(newRoomId).GetComponent<RoomController>();
-
-            selectedRoom.SetItem(newItem);
+            selectedRoom.SetItem(newItem, i + 1);
         }
     }
 }

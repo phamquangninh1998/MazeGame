@@ -20,7 +20,9 @@ public class Item : RayCastItem
         base.OnRayCast();
 
         if (PlayerController.instance.phase == 2) return;
+
         tray.empty = true;
+        tray.parentRoom.empty = true;
 
         AddToCollectedList();
     }
