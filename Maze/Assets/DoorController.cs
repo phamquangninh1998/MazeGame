@@ -21,7 +21,12 @@ public class DoorController : RayCastItem
     {
         if (parentRoom.empty)
         {
-            GameController.enterEmptyRoom++;
+            if (PlayerController.instance.phase == 1)
+            {
+
+                GameController.enterEmptyRoom++;
+                Debug.Log("enter Empty Room:" + GameController.enterEmptyRoom);
+            }
         }
     }
 
@@ -29,7 +34,12 @@ public class DoorController : RayCastItem
     {
         if (visited)
         {
-            GameController.enterOldRoom++;
+            if (PlayerController.instance.phase == 1)
+            {
+                GameController.enterOldRoom++;
+
+                Debug.Log("Enter old room:" + GameController.enterOldRoom);
+            }
 
         }
         else

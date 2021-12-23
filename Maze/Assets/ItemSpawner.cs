@@ -12,7 +12,11 @@ public class ItemSpawner : MonoBehaviour
     public Transform rooms;
     public List<Color> colorList;
     public List<AudioClip> audioClips;
-
+    public static int[] roomIdList;
+    private void Awake()
+    {
+        roomIdList = new int[3];
+    }
     private void Start()
     {
         roomCount = rooms.childCount;
@@ -34,6 +38,8 @@ public class ItemSpawner : MonoBehaviour
 
 
             int newRoomId = Random.Range(lastRoomId + 1, roomCount - (numberOfItemToSpawn - i));
+
+            roomIdList[i] = newRoomId;
 
             lastRoomId = newRoomId;
 
