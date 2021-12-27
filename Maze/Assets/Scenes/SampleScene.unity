@@ -1405,7 +1405,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Enter old room
+  m_Text: ' Entered Visited Rooms'
 --- !u!222 &166222762
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2812,7 +2812,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Distance
+  m_Text: Distance Covered
 --- !u!222 &441098023
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2966,7 +2966,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Trial
+  m_Text: Trail No
 --- !u!222 &484330195
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4426,7 +4426,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Wrong all
+  m_Text: Balls Misplaced
 --- !u!222 &739676682
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4669,7 +4669,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Enter empty room
+  m_Text: Entered Empty Rooms
 --- !u!222 &777335738
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7494,7 +7494,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Correct
+  m_Text: Balls Misplaced by Colour
 --- !u!222 &1259389258
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8269,7 +8269,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1407394260
 Transform:
   m_ObjectHideFlags: 0
@@ -8780,7 +8780,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Time
+  m_Text: Distance Covered
 --- !u!222 &1503183250
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -40,7 +40,7 @@ public class ResultTable : MonoBehaviour
     {
 
         TextWriter tw = new StreamWriter(fileName, true);
-        tw.WriteLine("enterOldRoom,enterEmptyRoom,correct,wrongColor,wrongAll,timeTravel,distanceTravel");
+        tw.WriteLine(" Entered Visited Rooms,Entered Empty Rooms,Balls Correctly Replaced,Balls Misplaced by Colour,Balls Misplaced, Time Taken, Distance Covered");
         tw.Close();
 
         for (int i = 0; i < 5; i++)

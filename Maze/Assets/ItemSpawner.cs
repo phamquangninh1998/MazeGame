@@ -15,7 +15,13 @@ public class ItemSpawner : MonoBehaviour
     public static int[] roomIdList;
     private void Awake()
     {
-        roomIdList = new int[3];
+        if (roomIdList == null)
+        {
+            Debug.Log("empty");
+            roomIdList = new int[3];
+
+        }
+
     }
     private void Start()
     {
@@ -36,15 +42,26 @@ public class ItemSpawner : MonoBehaviour
             newItem.audio = audioClips[i];
             newItem.GetComponent<Renderer>().material.color = newColor;
 
+            int newRoomId = 0;
 
-            int newRoomId = Random.Range(lastRoomId + 1, roomCount - (numberOfItemToSpawn - i));
+            if (GameController.trial == 1)
+            {
+                newRoomId = Random.Range(lastRoomId + 1, roomCount - (numberOfItemToSpawn - i));
+                lastRoomId = newRoomId;
 
-            roomIdList[i] = newRoomId;
+                roomIdList[i] = newRoomId;
 
-            lastRoomId = newRoomId;
+            }
+            else
+            {
+                newRoomId = roomIdList[i];
+            }
 
+            Debug.Log("roomId " + newRoomId);
             RoomController selectedRoom = rooms.GetChild(newRoomId).GetComponent<RoomController>();
             selectedRoom.SetItem(newItem, i + 1);
+
+
         }
     }
 }
