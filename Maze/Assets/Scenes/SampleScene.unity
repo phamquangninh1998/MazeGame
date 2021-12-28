@@ -7494,7 +7494,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Balls Misplaced by Colour
+  m_Text: Balls Correctly Replaced
 --- !u!222 &1259389258
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8269,7 +8269,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1407394260
 Transform:
   m_ObjectHideFlags: 0
@@ -8660,7 +8660,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Wrong color
+  m_Text: Balls Misplaced by Colour
 --- !u!222 &1465135742
 CanvasRenderer:
   m_ObjectHideFlags: 0
